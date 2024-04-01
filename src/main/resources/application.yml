@@ -1,0 +1,25 @@
+server:
+  port: 8085
+base-url:
+  context: /civil/dpr/api/v1.0/ui-manager
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/dpr?serverTimezone=Asia/Colombo
+    username: root
+    password: root
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+
+log:
+  identifierKey: UUID
+  isDebug: true
+
+rest:
+  connect-timeout: 5000
+  read-timeout: 20000
