@@ -2,11 +2,13 @@ package civil.dpr.application.controller;
 
 import civil.dpr.application.dto.Request;
 import civil.dpr.application.dto.boqCode.BoqCodeListRequestBody;
+import civil.dpr.application.dto.material.MaterialListRequestBody;
 import civil.dpr.application.transformer.ResponseEntityTransformer;
-import civil.dpr.application.transport.boqCode.BoqCodeListTransformer;
+import civil.dpr.application.transport.material.MaterialListTransformer;
 import civil.dpr.domain.dto.boqCode.BoqCodeListResponse;
+import civil.dpr.domain.dto.material.MaterialListResponse;
 import civil.dpr.domain.exception.DomainException;
-import civil.dpr.domain.service.BoqCodeService;
+import civil.dpr.domain.service.MaterialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,23 +19,23 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@RequestMapping("${base-url.context}/boq-code")
+@RequestMapping("${base-url.context}/material")
 @CrossOrigin(origins = "*")
-public class BoqCodeController extends BaseController{
+public class MaterialController extends BaseController{
 
     @Autowired
-    private BoqCodeService boqCodeService;
+    private MaterialService materialService;
     @Autowired
     private ResponseEntityTransformer responseEntityTransformer;
     @Autowired
-    private BoqCodeListTransformer boqCodeListTransformer;
+    private MaterialListTransformer materialListTransformer;
 
     @PostMapping(value = "/list")
-    public ResponseEntity<Object> getBoqCodeList(Request<BoqCodeListRequestBody> request) throws DomainException {
+    public ResponseEntity<Object> getMaterialList(Request<MaterialListRequestBody> request) throws DomainException {
 
-        BoqCodeListResponse boqCodeListResponse = boqCodeService.getBoqCodeList(request);
-        Map<String, Object> trResponse = responseEntityTransformer.transform(boqCodeListResponse, boqCodeListTransformer);
-        return getResponseEntity(boqCodeListResponse.getResponseHeader().getResponseCode(), trResponse);
+        MaterialListResponse materialListResponse = materialService.getMaterialList(request);
+        Map<String, Object> trResponse = responseEntityTransformer.transform(materialListResponse, materialListTransformer);
+        return getResponseEntity(materialListResponse.getResponseHeader().getResponseCode(), trResponse);
 
     }
 
