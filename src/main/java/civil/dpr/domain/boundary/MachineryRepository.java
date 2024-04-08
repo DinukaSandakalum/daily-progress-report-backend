@@ -23,4 +23,7 @@ public interface MachineryRepository extends JpaRepository<MachineryEntity, Long
             "WHERE (m.recordExpiryDate IS NULL OR m.recordExpiryDate >= :currentDateTime)")
     List<MachineryDetail> findAllMachineryDetails(@Param("currentDateTime") LocalDateTime currentDateTime);
 
+    @Query("SELECT m FROM MachineryEntity m WHERE m.machineryId = :machineryId " +
+            "AND (m.recordExpiryDate IS NULL OR m.recordExpiryDate >= :currentDateTime)")
+    MachineryEntity machineryDetailsById(Long machineryId, LocalDateTime currentDateTime);
 }

@@ -23,4 +23,8 @@ public interface BoqCodeRepository extends JpaRepository<BoqCodeEntity, Long> {
             "FROM BoqCodeEntity bc " +
             "WHERE (bc.recordExpiryDate IS NULL OR bc.recordExpiryDate >= :currentDateTime)")
     List<BoqCodeDetail> findAllBoqDetails(@Param("currentDateTime") LocalDateTime currentDateTime);
+
+    @Query("SELECT bc FROM BoqCodeEntity bc WHERE bc.boqId = :boqId " +
+            "AND (bc.recordExpiryDate IS NULL OR bc.recordExpiryDate >= :currentDateTime)")
+    BoqCodeEntity boqDetailsById(Long boqId, LocalDateTime currentDateTime);
 }

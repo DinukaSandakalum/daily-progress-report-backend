@@ -21,6 +21,7 @@ public class BoqCodeService implements CommonService {
     public BoqCodeListResponse getBoqCodeList(Request<BoqCodeListRequestBody> request) throws DomainException {
 
         try {
+            Thread.sleep(10);
             List<BoqCodeDetail> boqCodeDetailList = boqCodeRepository.findAllBoqDetails(LocalDateTime.now());
             return new BoqCodeListResponse(boqCodeDetailList, createResponseHeader(request.getRequestHeader()));
         } catch (Exception e) {

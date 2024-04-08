@@ -22,4 +22,7 @@ public interface LabourRepository extends JpaRepository<LabourEntity, Long> {
             "WHERE (l.recordExpiryDate IS NULL OR l.recordExpiryDate >= :currentDateTime)")
     List<LabourDetail> findAllLabourDetails(@Param("currentDateTime") LocalDateTime currentDateTime);
 
+    @Query("SELECT l FROM LabourEntity l WHERE l.labourId = :labourId " +
+            "AND (l.recordExpiryDate IS NULL OR l.recordExpiryDate >= :currentDateTime)")
+    LabourEntity labourDetailsById(Long labourId, LocalDateTime currentDateTime);
 }

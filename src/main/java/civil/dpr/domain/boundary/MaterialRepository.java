@@ -1,6 +1,5 @@
 package civil.dpr.domain.boundary;
 
-import civil.dpr.domain.dto.boqCode.BoqCodeDetail;
 import civil.dpr.domain.dto.material.MaterialDetail;
 import civil.dpr.domain.entities.MaterialEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -24,4 +23,7 @@ public interface MaterialRepository extends JpaRepository<MaterialEntity, Long> 
             "WHERE (m.recordExpiryDate IS NULL OR m.recordExpiryDate >= :currentDateTime)")
     List<MaterialDetail> findAllMaterialDetails(@Param("currentDateTime") LocalDateTime currentDateTime);
 
+    @Query("SELECT m FROM MaterialEntity m WHERE m.materialId = :materialId " +
+            "AND (m.recordExpiryDate IS NULL OR m.recordExpiryDate >= :currentDateTime)")
+    MaterialEntity MaterialDetailsById(Long materialId, LocalDateTime currentDateTime);
 }
