@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class UsedLabourDto {
     private Long usedLabourId;
-    private String materialType;
+    private String labourType;
     private BigDecimal quantity;
 
 }
