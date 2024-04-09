@@ -2,7 +2,6 @@ package civil.dpr.application.transport.workItem;
 
 import civil.dpr.application.transformer.ResponseEntityInterface;
 import civil.dpr.domain.dto.workItem.WorkItemDetailResponse;
-import civil.dpr.domain.dto.workSummary.WorkSummaryCreateResponse;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;

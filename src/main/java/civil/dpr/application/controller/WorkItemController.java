@@ -1,11 +1,9 @@
 package civil.dpr.application.controller;
 
 import civil.dpr.application.dto.Request;
-import civil.dpr.application.dto.machinery.MachineryListRequestBody;
 import civil.dpr.application.dto.workItem.WorkItemListRequestBody;
 import civil.dpr.application.transformer.ResponseEntityTransformer;
 import civil.dpr.application.transport.workItem.WorkItemTransformer;
-import civil.dpr.domain.dto.machinery.MachineryListResponse;
 import civil.dpr.domain.dto.workItem.WorkItemDetailResponse;
 import civil.dpr.domain.exception.DomainException;
 import civil.dpr.domain.service.WorkItemService;

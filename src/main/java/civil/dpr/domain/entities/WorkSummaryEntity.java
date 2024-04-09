@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 @AllArgsConstructor
@@ -25,7 +26,7 @@ public class WorkSummaryEntity extends BaseEntity{
     @JoinColumn(name = "WorkItemEntityId", referencedColumnName = "WorkItemId")
     private WorkItemEntity workItemEntityId;
     @Column(name = "WorkDate")
-    private String workDate;
+    private LocalDate workDate;
     @ManyToOne
     @JoinColumn(name = "BoqCodeEntityId", referencedColumnName = "BoqId")
     private BoqCodeEntity boqCodeEntityId;

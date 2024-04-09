@@ -1,6 +1,7 @@
 package civil.dpr.domain.boundary;
 
 import civil.dpr.domain.dto.workItem.WorkItemDetail;
+import civil.dpr.domain.dto.workSummary.list.WorkSummaryListResponse;
 import civil.dpr.domain.entities.WorkItemEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -26,4 +27,5 @@ public interface WorkItemRepository extends JpaRepository<WorkItemEntity, Long> 
             "FROM WorkItemEntity w " +
             "WHERE (w.recordExpiryDate IS NULL OR w.recordExpiryDate >= :currentDateTime)")
     List<WorkItemDetail> findAllWorkItemDetails(@Param("currentDateTime") LocalDateTime currentDateTime);
+
 }

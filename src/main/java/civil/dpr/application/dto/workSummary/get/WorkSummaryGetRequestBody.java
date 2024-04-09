@@ -10,5 +10,7 @@ import lombok.NoArgsConstructor;
 public class WorkSummaryGetRequestBody {
 
     private Long workSummaryId;
+    private Long userId;
+    private Long workItemId;
 
 }
